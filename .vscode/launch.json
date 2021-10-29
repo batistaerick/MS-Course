@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch HrEurekaServerApplication",
+            "request": "launch",
+            "mainClass": "com.hreurekaserver.HrEurekaServerApplication",
+            "projectName": "hr-eureka-server"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-HrWorkerApplication<hr-worker>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
