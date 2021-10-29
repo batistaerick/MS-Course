@@ -1,13 +1,12 @@
-package com.hrworker.hrworker;
+package com.hrpayroll;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HrWorkerApplication {
+public class HrPayrollApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HrWorkerApplication.class, args);
+		SpringApplication.run(HrPayrollApplication.class, args);
 	}
-
 }
