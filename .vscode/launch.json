@@ -2,19 +2,22 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch HrEurekaServerApplication",
-            "request": "launch",
-            "mainClass": "com.hreurekaserver.HrEurekaServerApplication",
-            "projectName": "hr-eureka-server"
-        },
-        {
-            "type": "java",
             "name": "Spring Boot-HrWorkerApplication<hr-worker>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "mainClass": "com.hrworker.HrWorkerApplication",
             "projectName": "hr-worker",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrEurekaServerApplication<hr-eureka-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.hreurekaserver.HrEurekaServerApplication",
+            "projectName": "hr-eureka-server",
             "args": ""
         },
         {
