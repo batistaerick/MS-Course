@@ -29,6 +29,36 @@
             "mainClass": "com.hrpayroll.HrPayrollApplication",
             "projectName": "hr-payroll",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrGatewayApplication<hr-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.hrgateway.HrGatewayApplication",
+            "projectName": "hr-gateway",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrGatewayZuulApplication<hr-gateway-zuul>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.hrgatewayzuul.HrGatewayZuulApplication",
+            "projectName": "hr-gateway-zuul",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrConfigServerApplication<hr-config-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.hrconfigserver.HrConfigServerApplication",
+            "projectName": "hr-config-server",
+            "args": ""
         }
     ]
 }

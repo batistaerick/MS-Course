@@ -1,6 +1,8 @@
 package com.hrpayroll.entities.dtos;
 
-public class WorkerDTO {
+import java.io.Serializable;
+
+public class WorkerDTO implements Serializable {
 
     private Long id;
     private String name;
