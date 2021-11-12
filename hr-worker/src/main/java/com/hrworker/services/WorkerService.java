@@ -29,7 +29,6 @@ public class WorkerService {
 
     public Worker findById(Long id) {
         Optional<Worker> optional = repository.findById(id);
-        
         return optional.isPresent() ? optional.get() : null;
     }
 }
