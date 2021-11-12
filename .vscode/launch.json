@@ -59,6 +59,16 @@
             "mainClass": "com.hrconfigserver.HrConfigServerApplication",
             "projectName": "hr-config-server",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrUserApplication<hr-user>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.hruser.HrUserApplication",
+            "projectName": "hr-user",
+            "args": ""
         }
     ]
 }
