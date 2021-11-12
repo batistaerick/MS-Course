@@ -1,6 +1,10 @@
 package com.hrworker.entities.dtos;
 
-public class WorkerDTO {
+import java.io.Serializable;
+
+public class WorkerDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Long id;
     private String name;
