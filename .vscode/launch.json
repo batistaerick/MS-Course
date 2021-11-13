@@ -69,6 +69,16 @@
             "mainClass": "com.hruser.HrUserApplication",
             "projectName": "hr-user",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrOauthApplication<hr-oauth>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.hroauth.HrOauthApplication",
+            "projectName": "hr-oauth",
+            "args": ""
         }
     ]
 }
