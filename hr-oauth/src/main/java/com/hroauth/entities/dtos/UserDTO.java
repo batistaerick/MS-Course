@@ -1,6 +1,5 @@
 package com.hroauth.entities.dtos;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -9,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UserDTO implements UserDetails, Serializable {
+public class UserDTO implements UserDetails {
 
     private static final long serialVersionUID = 1L;
 
