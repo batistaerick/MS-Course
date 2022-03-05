@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.hruser.entities.User;
 import com.hruser.entities.dtos.UserDTO;
+import com.hruser.exceptions.UserException;
 import com.hruser.repositories.UserRepository;
 
 import org.springframework.beans.BeanUtils;
@@ -22,8 +23,7 @@ public class UserService {
     private PasswordEncoder encoder;
 
     public User findById(Long id) {
-        Optional<User> user = repository.findById(id);
-        return user.isPresent() ? user.get() : null;
+        return repository.findById(id).orElseThrow(() -> new UserException("User not found!"));
     }
 
     public List<User> findAll() {
@@ -35,13 +35,18 @@ public class UserService {
     }
 
     public User save(UserDTO dto) {
-        User user = new User();
-        BeanUtils.copyProperties(dto, user);
+        User user = dtoToEntity(dto);
         user.setPassword(encoder.encode(user.getPassword()));
         return repository.save(user);
     }
 
     public Boolean validatePassword(String email, String password) {
         return encoder.matches(password, findByEmail(email).getPassword());
+    }
+
+    public User dtoToEntity(UserDTO dto) {
+        User entity = new User();
+        BeanUtils.copyProperties(dto, entity);
+        return entity;
     }
 }

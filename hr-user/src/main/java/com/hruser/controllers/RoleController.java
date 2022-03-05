@@ -22,11 +22,11 @@ public class RoleController {
 
     @GetMapping(value = "/findById/{id}")
     public ResponseEntity<Role> findById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(service.findById(id));
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping(value = "/save")
     public ResponseEntity<Role> save(@RequestBody RoleDTO dto) {
-        return ResponseEntity.ok().body(service.save(dto));
+        return ResponseEntity.ok(service.save(dto));
     }
 }

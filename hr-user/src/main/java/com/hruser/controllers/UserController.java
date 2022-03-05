@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -33,21 +33,21 @@ public class UserController {
 
     @GetMapping(value = "/findById/{id}")
     public ResponseEntity<User> findById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(service.findById(id));
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @GetMapping(value = "/findByEmail/{email}")
     public ResponseEntity<User> findByEmail(@PathVariable String email) {
-        return ResponseEntity.ok().body(service.findByEmail(email));
+        return ResponseEntity.ok(service.findByEmail(email));
     }
 
     @GetMapping(value = "/findAll")
     public ResponseEntity<List<User>> findAll() {
-        return ResponseEntity.ok().body(service.findAll());
+        return ResponseEntity.ok(service.findAll());
     }
 
     @PostMapping(value = "/save")
     public ResponseEntity<User> save(@RequestBody UserDTO dto) {
-        return ResponseEntity.ok().body(service.save(dto));
+        return ResponseEntity.ok(service.save(dto));
     }
 }

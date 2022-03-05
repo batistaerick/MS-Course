@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/payments")
+@RequestMapping("/payments")
 public class PaymentController {
 
     @Autowired
@@ -19,6 +19,6 @@ public class PaymentController {
 
     @GetMapping(value = "/getPayment/{workerId}/{days}")
     public ResponseEntity<Payment> getPayment(@PathVariable Long workerId, @PathVariable Integer days) {
-        return ResponseEntity.ok().body(service.getPayment(workerId, days));
+        return ResponseEntity.ok(service.getPayment(workerId, days));
     }
 }

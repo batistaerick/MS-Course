@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/workers")
+@RequestMapping("/workers")
 public class WorkerController {
 
     @Autowired
@@ -24,16 +24,16 @@ public class WorkerController {
 
     @GetMapping(value = "/findAll")
     public ResponseEntity<List<Worker>> findAll() {
-        return ResponseEntity.ok().body(service.findAll());
+        return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping(value = "/findById/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(service.findById(id));
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping(value = "/save")
     public ResponseEntity<Worker> save(@RequestBody WorkerDTO worker) {
-        return ResponseEntity.ok().body(service.save(worker));
+        return ResponseEntity.ok(service.save(worker));
     }
 }

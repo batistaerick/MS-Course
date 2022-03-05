@@ -4,6 +4,7 @@ import com.hrpayroll.clients.WorkerFeignClient;
 import com.hrpayroll.entities.Payment;
 import com.hrpayroll.entities.dtos.WorkerDTO;
 
+import com.hrpayroll.exceptions.PaymentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ public class PaymentService {
     public Payment getPayment(Long workerId, Integer days) {
 
         WorkerDTO dto = workerClient.findById(workerId).getBody();
+        if (dto == null) {
+            throw new PaymentException("Worker not found!");
+        }
         return new Payment(dto.getName(), dto.getDailyIncome(), days);
     }
 }

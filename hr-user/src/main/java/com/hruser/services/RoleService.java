@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import com.hruser.entities.Role;
 import com.hruser.entities.dtos.RoleDTO;
+import com.hruser.exceptions.RoleException;
 import com.hruser.repositories.RoleRepository;
 
 import org.springframework.beans.BeanUtils;
@@ -17,13 +18,16 @@ public class RoleService {
     private RoleRepository repository;
 
     public Role findById(Long id) {
-        Optional<Role> role = repository.findById(id);
-        return role.isPresent() ? role.get() : null;
+        return repository.findById(id).orElseThrow(() -> new RoleException("Role not found!"));
     }
 
     public Role save(RoleDTO dto) {
-        Role role = new Role();
-        BeanUtils.copyProperties(dto, role);
-        return repository.save(role);
+        return repository.save(dtoToEntity(dto));
+    }
+
+    public Role dtoToEntity(RoleDTO dto) {
+        Role entity = new Role();
+        BeanUtils.copyProperties(dto, entity);
+        return entity;
     }
 }

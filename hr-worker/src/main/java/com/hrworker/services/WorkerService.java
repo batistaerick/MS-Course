@@ -1,15 +1,14 @@
 package com.hrworker.services;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.hrworker.entities.Worker;
 import com.hrworker.entities.dtos.WorkerDTO;
+import com.hrworker.exceptions.WorkerException;
 import com.hrworker.repositories.WorkerRepository;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class WorkerService {
@@ -22,13 +21,16 @@ public class WorkerService {
     }
 
     public Worker save(WorkerDTO dto) {
-        Worker worker = new Worker();
-        BeanUtils.copyProperties(dto, worker);
-        return repository.save(worker);
+        return repository.save(dtoToEntity(dto));
     }
 
     public Worker findById(Long id) {
-        Optional<Worker> optional = repository.findById(id);
-        return optional.isPresent() ? optional.get() : null;
+        return repository.findById(id).orElseThrow(() -> new WorkerException("Worker not found!"));
+    }
+
+    public Worker dtoToEntity(WorkerDTO dto) {
+        Worker entity = new Worker();
+        BeanUtils.copyProperties(dto, entity);
+        return entity;
     }
 }
